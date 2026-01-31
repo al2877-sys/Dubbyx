@@ -38,10 +38,10 @@
         }
         .logo-circle img { width: 100%; height: 100%; object-fit: cover; }
 
-        .header-title-text h1 { margin: 0; color: var(--primary-blue); font-size: 1.4rem; text-transform: uppercase; }
-        .header-title-text p { margin: 2px 0 0; color: var(--text-dark); font-weight: 600; font-size: 0.8rem; }
+        .header-title-text h1 { margin: 0; color: var(--primary-blue); font-size: 2.4rem; text-transform: uppercase; }
+        .header-title-text p { margin: 2px 0 0; color: var(--text-dark); font-weight: 600; font-size: 1.6rem; }
 
-        /* BANNER AL 50% CENTRADO */
+        /* BANNER */
         .banner-wrapper {
             width: 100%;
             display: flex;
@@ -74,7 +74,6 @@
             background-repeat: no-repeat;
         }
 
-        /* FLECHAS */
         .arrow {
             position: absolute;
             top: 50%;
@@ -95,27 +94,45 @@
         .arrow-left { left: 10px; }
         .arrow-right { right: 10px; }
 
-        /* IMÁGENES LOCALES */
-        .slide-1 { background-image: url('img/img1.jpg'); } 
-        .slide-2 { background-image: url('img/img2.jpg'); } 
-        .slide-3 { background-image: url('img/img3.jpg'); } 
-
         /* SELECTORES */
-        .choice-container { display: flex; gap: 20px; max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .choice-container { display: flex; gap: 20px; max-width: 1100px; margin: 30px auto; padding: 0 20px; }
         .choice-box { flex: 1; padding: 30px; text-align: center; border-radius: 12px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 2px solid transparent; }
         .investor-box { background-color: var(--primary-blue); color: white; }
         .living-box { background-color: var(--white); color: var(--primary-blue); border-color: var(--primary-blue); }
         .choice-box:hover { transform: translateY(-5px); border-color: var(--gold); }
 
-        /* SECCIONES */
-        .info-section { max-width: 1000px; margin: 40px auto; padding: 0 20px; display: none; }
+        /* SECCIONES Y GRID DE CUADRADOS IGUALES */
+        .info-section { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: none; }
         .active { display: block !important; animation: fadeIn 0.5s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: var(--white); padding: 25px; border-radius: 8px; border-bottom: 4px solid var(--gold); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; 
+            align-items: stretch;
+        }
 
-        /* FORMULARIO Y CONTACTO */
+        .card { 
+            background: var(--white); 
+            padding: 30px; 
+            border-radius: 8px; 
+            border-bottom: 5px solid var(--gold); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+            aspect-ratio: 1 / 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .card h3 { color: var(--primary-blue); margin-bottom: 15px; font-size: 1.4rem; }
+        .card p { font-size: 1.1rem; line-height: 1.4; margin: 0; }
+
+        /* FORMULARIO */
         .qualification-section { background-color: var(--primary-blue); color: white; padding: 40px; border-radius: 12px; max-width: 800px; margin: 40px auto; text-align: center; }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
         .form-grid input { padding: 12px; border-radius: 4px; border: none; outline: none; }
@@ -142,9 +159,9 @@
         <div class="banner-container">
             <button class="arrow arrow-left" onclick="manualMove(-1)">&#10094;</button>
             <div class="carousel-track" id="carouselTrack">
-                <div class="carousel-slide slide-1"></div>
-                <div class="carousel-slide slide-2"></div>
-                <div class="carousel-slide slide-3"></div>
+                <div class="carousel-slide" style="background-image: url('img/img1.jpg');"></div>
+                <div class="carousel-slide" style="background-image: url('img/img2.jpg');"></div>
+                <div class="carousel-slide" style="background-image: url('img/img3.jpg');"></div>
             </div>
             <button class="arrow arrow-right" onclick="manualMove(1)">&#10095;</button>
         </div>
@@ -163,39 +180,32 @@
 
     <section id="investor" class="info-section">
         <div class="grid">
-            <div class="card"><h3>📈 Rentabilidad</h3><p>Retornos del 7% al 9% anual en zonas estratégicas.</p></div>
-            <div class="card"><h3>🚀 Plusvalía</h3><p>Crecimiento acelerado en proyectos de pre-construcción.</p></div>
-            <div class="card"><h3>🚀 Plusvalía</h3><p>¿Para qué ser "dueño" si no puedes rentar con calma? En Dubái 
-             si el inquilino no paga, la ley funciona. En Latinoamérica, sacar a un mal inquilino es un calvario de años.</p></div>
+            <div class="card"><h3>📈 Rentabilidad</h3><p>Retornos del 7% al 9% anual en zonas estratégicas de alta demanda.</p></div>
+            <div class="card"><h3>🚀 Plusvalía</h3><p>Crecimiento acelerado asegurado en proyectos seleccionados de pre-construcción.</p></div>
+            <div class="card"><h3>⚖️ Seguridad Jurídica</h3><p>En Dubái, si el inquilino no paga, la ley protege al dueño. Sin los calvarios legales de Latinoamérica.</p></div>
+            <div class="card"><h3>🌍 Moneda Fuerte</h3><p>Proteja su capital en una economía que crece al ritmo del futuro y no se devalúa.</p></div>
+            <div class="card"><h3>🛡️ Blindaje</h3><p>Convierte tus devaluados pesos o bolívares en ladrillos en la ciudad más estable y segura del planeta.</p></div>
+            <div class="card"><h3>💸 Financiamiento</h3><p>Olvídese de los bancos. Planes de pago con el desarrollador sin intereses. 10% de entrada y cuotas cómodas.</p></div>
+            <div class="card"><h3>🏢 Gestión Total</h3><p>Administración profesional: desde la entrega hasta la renta vacacional o anual. Dividendos directos a su cuenta.</p></div>
+            <div class="card"><h3>🎯 Estrategia</h3><p>Identificamos el próximo epicentro de la ciudad antes de que sea evidente para la masa. Timing perfecto.</p></div>
+            <div class="card"><h3>💰 Renta Dólares</h3><p>Deje de cobrar en moneda local. Empiece a recibir dividendos en una moneda anclada directamente al dólar.</p></div>
         </div>
-             <div class="card"><h3>🚀 Plusvalía</h3><p>¿Para qué amarrar tu capital a una moneda que se devalúa? En Dubái 
-             tu propiedad está tasada en una economía que crece al ritmo del futuro, no del pasado.</p></div>
-             </div>
-             <div class="card"><h3>🛡️ Blindaje de Capital</h3><p>Convierte tus devaluados pesos o bolívares en ladrillos en la ciudad más estable del planeta.</p>
-        </div>
-        <div class="card"><h3>🛡️ Financiamiento</h3><p>"Olvídese de las asfixiantes tasas bancarias de Latinoamérica. En Dubái, usted no le debe al banco; usted acuerda con el desarrollador. Ofrecemos planes de pago estructurados donde el interés es inexistente. Puede asegurar su posición con un pago inicial del 10% y distribuir el saldo durante el periodo de construcción. Es, esencialmente, una estrategia de apalancamiento sin costo financiero, diseñada para proteger su liquidez mientras su activo aumenta de valor.".</p>
-        </div>
-        <div class="card"><h3>🛡️ Gestion Patrimonial De La Propiedad</h3><p>""Ser dueño de una propiedad en el otro lado del mundo no debe ser una carga operativa. Contamos con estructuras de administración profesional que gestionan desde la entrega de la unidad hasta la selección del inquilino y el mantenimiento técnico. Ya sea mediante Renta Anual (ROI del 7-8%) o Renta Vacacional (ROI del 10-12%), usted recibe sus dividendos libres de impuestos directamente en su cuenta, sin haber tenido que atender una sola llamada del inquilino.".".</p>
-        </div>
-        <div class="card"><h3>💰 Mito De La Revalorizacion</h3><p>"En el mercado inmobiliario de Dubái, la revalorización no es una cuestión de suerte, sino de timing estratégico. Un proyecto adquirido en fase de preventa (Off-plan) genera, por naturaleza técnica, entre un 15% y un 25% de plusvalía al momento de la entrega de llaves. Sin embargo, alcanzar rendimientos superiores al 50% requiere identificar nodos de desarrollo urbano antes de que sean evidentes para la masa. Nosotros no buscamos 'lo que ya brilla', sino lo que está destinado a ser el próximo epicentro de la ciudad.".</p>
-        </div>
-        <div class="card"><h3>💰 Renta en Dólares</h3><p>Deja de cobrar rentas locales. Empieza a recibir dividendos en una moneda anclada al dólar.</p></div>
-    
     </section>
+
     <section id="living" class="info-section">
         <div class="grid">
-            <div class="card"><h3>🏙️ Centro</h3><p>Lujo y exclusividad en el corazón de Dubái.</p></div>
-            <div class="card"><h3>🌳 Familiar</h3><p>Comunidades seguras con los mejores servicios.</p></div>
+            <div class="card"><h3>🏙️ Centro (Downtown)</h3><p>Lujo, exclusividad y cercanía al Burj Khalifa en el corazón del mundo.</p></div>
+            <div class="card"><h3>🌳 Comunidades</h3><p>Villas y entornos familiares con los estándares de seguridad más altos del mundo.</p></div>
+            <div class="card"><h3>🏖️ Marítimo</h3><p>Propiedades exclusivas frente al mar en Palm Jumeirah y Dubai Marina.</p></div>
+            <div class="card"><h3>🏌️ Golf Estates</h3><p>Residencias de lujo rodeadas de campos de golf profesionales y tranquilidad total.</p></div>
         </div>
     </section>
 
     <div class="qualification-section">
         <h2>Queremos ayudarle con su decisión. Contáctenos</h2>
-        
         <form action="https://formspree.io/f/maqjagka" method="POST" class="form-grid" id="mainForm">
             <input type="text" name="nombre" id="formNombre" placeholder="Nombre Completo" required>
             <input type="email" name="email" id="formEmail" placeholder="Correo Electrónico" required>
-            
             <button type="submit" class="btn-submit">ENVIAR POR CORREO</button>
             <button type="button" class="btn-submit btn-whatsapp" onclick="enviarWhatsApp()">CONTACTAR POR WHATSAPP</button>
         </form>
@@ -206,14 +216,12 @@
     </footer>
 
     <script>
-        // Lógica de Secciones
         function showSection(id) {
             document.querySelectorAll('.info-section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Lógica del Carrusel
         let slideIndex = 0;
         const totalSlides = 3;
         const carouselTrack = document.getElementById('carouselTrack');
@@ -234,30 +242,18 @@
             moveCarousel();
         }, 6000);
 
-        // Lógica de WhatsApp
         function enviarWhatsApp() {
             const nombre = document.getElementById('formNombre').value;
             const email = document.getElementById('formEmail').value;
-            
             if(!nombre) {
-                alert("Por favor, ingrese su nombre para el mensaje de WhatsApp.");
+                alert("Por favor, ingrese su nombre.");
                 return;
             }
-
-            const telefono = "971500000000"; // CAMBIE ESTE NÚMERO POR EL SUYO
-            const mensaje = `Hola Dubbyx, mi nombre es ${nombre}. Mi correo es ${email} y deseo información sobre inversiones.`;
+            const telefono = "971500000000"; 
+            const mensaje = `Hola Dubbyx, mi nombre es ${nombre}. Mi correo es ${email} y deseo información.`;
             const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-            
             window.open(url, '_blank');
         }
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
