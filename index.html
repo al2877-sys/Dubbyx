@@ -42,7 +42,7 @@
             background-color: #000; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
         .carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
-        .carousel-slide { min-width: 100%; height: 100%; background-size: contain; background-position: center; background-repeat: no-repeat; }
+        .carousel-slide { min-width: 100%; height: 100%; background-size: cover; background-position: center; background-repeat: no-repeat; }
 
         .choice-container { display: flex; gap: 20px; max-width: 1100px; margin: 30px auto; padding: 0 20px; }
         .choice-box { flex: 1; padding: 30px; text-align: center; border-radius: 12px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 2px solid transparent; }
@@ -66,8 +66,7 @@
             border-radius: 15px; overflow: hidden; display: flex; flex-wrap: wrap;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid var(--gold);
         }
-        .property-image { flex: 1; min-width: 300px; height: 350px; }
-        .property-image img { width: 100%; height: 100%; object-fit: cover; }
+        .property-image { flex: 1; min-width: 300px; height: 350px; position: relative; overflow: hidden; }
         
         .property-info { flex: 1.2; min-width: 300px; padding: 30px; box-sizing: border-box; text-align: left; }
         .property-info h2 { color: var(--primary-blue); margin-top: 0; }
@@ -121,7 +120,7 @@
     <section id="investor" class="info-section">
         <div class="grid">
             <div class="card"><h3>📈 Rentabilidad</h3><p>Retornos del 7% al 9% anual en zonas estratégicas de alta demanda.</p></div>
-            <div class="card"><h3>🚀 Plusvalía</h3><p>Mi nombre es Dubbyx y mi misión es blindar el patrimonio de inversores hispanos en el mercado inmobiliario más seguro del planeta. No importa si este es su primer activo internacional o el décimo de su portafolio; yo le entrego la hoja de ruta técnica, legal y fiscal para que su dinero trabaje en dólares, con 0% de impuestos y bajo la protección del Gobierno de Dubái. Si usted tiene la visión, yo tengo la estructuraCrecimiento acelerado asegurado en proyectos seleccionados de pre-construcción.</p></div>
+            <div class="card"><h3>🚀 Plusvalía</h3><p>Mi nombre es Dubbyx y mi misión es blindar el patrimonio de inversores hispanos en el mercado inmobiliario más seguro del planeta. No importa si este es su primer activo internacional o el décimo de su portafolio; yo le entrego la hoja de ruta técnica, legal y fiscal para que su dinero trabaje en dólares, con 0% de impuestos y bajo la protección del Gobierno de Dubái. Si usted tiene la visión, yo tengo la estructuraCrecimiento acelerado asegurado en proyectos seleccionados de pre-construcción. Mi misión es blindar el patrimonio de inversores hispanos en el mercado inmobiliario más seguro del planeta, con 0% de impuestos.</p></div>
             <div class="card"><h3>⚖️ Seguridad Jurídica</h3><p>En Dubái, si el inquilino no paga, la ley protege al dueño.</p></div>
             <div class="card"><h3>🌍 Moneda Fuerte</h3><p>Proteja su capital en una moneda anclada directamente al dólar.</p></div>
             <div class="card"><h3>🛡️ Blindaje</h3><p>Convierte devaluación en ladrillos en la ciudad más segura del mundo.</p></div>
@@ -143,17 +142,28 @@
         <h2 style="text-align: center; color: var(--primary-blue);">Opciones de Referencia</h2>
         
         <div class="featured-property">
-            <div class="property-image"><img src="img/img1.jpg" alt="Estudio"></div>
+            <div class="property-image">
+                <div class="carousel-track trackApart1" style="display: flex; transition: transform 0.5s ease-in-out;">
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart1/img0.jpg');"></div>
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart1/img1.jpg');"></div>
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart1/img2.jpg');"></div>
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart1/img3.jpg');"></div>
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart1/img4.jpg');"></div>
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart1/img5.jpg');"></div>
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart1/img6.jpg');"></div>
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart1/img7.jpg');"></div>
+                </div>
+            </div>
             <div class="property-info">
                 <h2>Unidad de Entrada (Yield)</h2>
                 <p>Ideal para quienes inician su portafolio en Dubái. Unidades de alta rotación en zonas de crecimiento masivo.</p>
-                <div class="price-tag">Desde $220,000 USD</div>
+                <div class="price-tag">Desde $380,000 USD</div>
                 <a href="#mainForm" class="btn-submit">QUIERO CONSULTAR OPCIONES SIMILARES</a>
             </div>
         </div>
 
         <div class="featured-property">
-            <div class="property-image"><img src="img/img2.jpg" alt="Sky Palace"></div>
+            <div class="property-image"><img src="img/img2.jpg" alt="Sky Palace" style="width:100%; height:100%; object-fit:cover;"></div>
             <div class="property-info">
                 <h2>Unidad de Muestra: Sky Palace</h2>
                 <p>El estándar de lujo en el corazón financiero. Equilibrio perfecto entre plusvalía y estilo de vida.</p>
@@ -163,7 +173,7 @@
         </div>
 
         <div class="featured-property">
-            <div class="property-image"><img src="img/img3.jpg" alt="Villa"></div>
+            <div class="property-image"><img src="img/img3.jpg" alt="Villa" style="width:100%; height:100%; object-fit:cover;"></div>
             <div class="property-info">
                 <h2>Ultra-Lujo & Privacidad</h2>
                 <p>Propiedades exclusivas para altos patrimonios. Gestión de búsqueda privada y confidencial.</p>
@@ -174,7 +184,7 @@
 
         <div class="trust-box">
             <h3 style="color: var(--primary-blue);">¿Aún no está listo para invertir? No hay problema.</h3>
-            <p>En Dubbyx creemos en las relaciones de largo plazo. Si tiene dudas sobre el mercado, zonas o procesos legales, pregúnteme. Mi objetivo es que usted tenga la información correcta, esté listo hoy o en tres años.</p>
+            <p>En Dubbyx creemos en las relaciones de largo plazo. Mi objetivo es que usted tenga la información correcta.</p>
             <a href="https://wa.me/+584123325563" class="btn-submit btn-whatsapp" style="display: inline-block; width: auto; padding: 15px 30px;">RESOLVER MIS DUDAS POR WHATSAPP</a>
         </div>
     </div>
@@ -194,28 +204,43 @@
     </footer>
 
     <script>
-        // Unificar las muestras en ambas secciones sin tocar el texto
+        /* 1. CLONACIÓN DE MUESTRAS: Copia el contenido de la plantilla a las secciones visibles */
         const contenidoMuestras = document.getElementById('plantillaMuestras').innerHTML;
         document.querySelectorAll('.muestras-unificadas').forEach(el => {
             el.innerHTML = contenidoMuestras;
         });
 
+        /* 2. NAVEGACIÓN: Muestra la sección de Invertir o Vivir */
         function showSection(id) {
             document.querySelectorAll('.info-section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
 
+        /* 3. CARRUSEL PRINCIPAL (El banner de arriba) */
         let slideIndex = 0;
         setInterval(() => {
             slideIndex = (slideIndex + 1) % 3;
-            document.getElementById('carouselTrack').style.transform = `translateX(-${slideIndex * 100}%)`;
+            const bannerTrack = document.getElementById('carouselTrack');
+            if(bannerTrack) bannerTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
         }, 6000);
 
+        /* 4. CARRUSEL APARTAMENTO 1: Controla las 7 fotos de la Unidad de Entrada */
+        let apart1Index = 0;
+        const totalFotosApart1 = 7;
+        setInterval(() => {
+            apart1Index = (apart1Index + 1) % totalFotosApart1;
+            // Usamos querySelectorAll porque la unidad se clona en "Invertir" y "Vivir"
+            document.querySelectorAll('.trackApart1').forEach(track => {
+                track.style.transform = `translateX(-${apart1Index * 100}%)`;
+            });
+        }, 4000); // Cambio cada 4 segundos
+
+        /* 5. CONTACTO WHATSAPP: Captura el nombre y abre el chat */
         function enviarWhatsApp() {
             const nombre = document.getElementById('formNombre').value;
-            if(!nombre) { alert("Ingrese su nombre"); return; }
-            const mensaje = `Hola Dubbyx, mi nombre es ${nombre}. Deseo asesoría sobre las opciones de inversión.`;
+            if(!nombre) { alert("Por favor, ingrese su nombre para iniciar la asesoría."); return; }
+            const mensaje = `Hola Dubbyx, mi nombre es ${nombre}. Deseo asesoría sobre las opciones de inversión en Dubái.`;
             window.open(`https://wa.me/+584123325563?text=${encodeURIComponent(mensaje)}`, '_blank');
         }
     </script>
