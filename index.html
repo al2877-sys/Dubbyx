@@ -38,7 +38,7 @@
 
         .banner-wrapper { width: 100%; display: flex; justify-content: center; padding: 20px 0; }
         .banner-container {
-            width: 50%; position: relative; overflow: hidden; height: 400px; 
+            width: 90%; max-width: 1100px; position: relative; overflow: hidden; height: 400px; 
             background-color: #000; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
         .carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -67,7 +67,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid var(--gold);
         }
         .property-image { flex: 1; min-width: 300px; height: 350px; position: relative; overflow: hidden; }
-        
         .property-info { flex: 1.2; min-width: 300px; padding: 30px; box-sizing: border-box; text-align: left; }
         .property-info h2 { color: var(--primary-blue); margin-top: 0; }
         .price-tag { color: var(--gold); font-weight: bold; font-size: 1.4rem; margin: 15px 0; }
@@ -163,11 +162,22 @@
         </div>
 
         <div class="featured-property">
-            <div class="property-image"><img src="img/img2.jpg" alt="Sky Palace" style="width:100%; height:100%; object-fit:cover;"></div>
+            <div class="property-image">
+                <div class="carousel-track trackApart2" style="display: flex; transition: transform 0.5s ease-in-out;">
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart2/img0.jpg');"></div>
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart2/img1.jpg');"></div>
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart2/img2.jpg');"></div>
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart2/img3.jpg');"></div>
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart2/img4.jpg');"></div>
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart2/img5.jpg');"></div>
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart2/img6.jpg');"></div>
+                    <div class="carousel-slide" style="min-width: 100%; height: 350px; background-image: url('img/apart2/img7.jpg');"></div>
+                </div>
+            </div>
             <div class="property-info">
                 <h2>Unidad de Muestra: Sky Palace</h2>
                 <p>El estándar de lujo en el corazón financiero. Equilibrio perfecto entre plusvalía y estilo de vida.</p>
-                <div class="price-tag">Desde $850,000 USD</div>
+                <div class="price-tag">Desde $680,000 USD</div>
                 <a href="#mainForm" class="btn-submit">SOLICITAR DETALLES Y GESTIÓN</a>
             </div>
         </div>
@@ -185,7 +195,7 @@
         <div class="trust-box">
             <h3 style="color: var(--primary-blue);">¿Aún no está listo para invertir? No hay problema.</h3>
             <p>En Dubbyx creemos en las relaciones de largo plazo. Mi objetivo es que usted tenga la información correcta.</p>
-            <a href="https://wa.me/+584123325563" class="btn-submit btn-whatsapp" style="display: inline-block; width: auto; padding: 15px 30px;">RESOLVER MIS DUDAS POR WHATSAPP</a>
+            <a href="https://wa.me/584123325563" class="btn-submit btn-whatsapp" style="display: inline-block; width: auto; padding: 15px 30px;">RESOLVER MIS DUDAS POR WHATSAPP</a>
         </div>
     </div>
 
@@ -225,23 +235,29 @@
             if(bannerTrack) bannerTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
         }, 6000);
 
-        /* 4. CARRUSEL APARTAMENTO 1: Controla las 7 fotos de la Unidad de Entrada */
-        let apart1Index = 0;
-        const totalFotosApart1 = 7;
-        setInterval(() => {
-            apart1Index = (apart1Index + 1) % totalFotosApart1;
-            // Usamos querySelectorAll porque la unidad se clona en "Invertir" y "Vivir"
-            document.querySelectorAll('.trackApart1').forEach(track => {
-                track.style.transform = `translateX(-${apart1Index * 100}%)`;
-            });
-        }, 4000); // Cambio cada 4 segundos
+        /* 4. CARRUSEL PROPIEDADES: Control dinámico para todas las unidades */
+        // JARVIS MOD: Se creó una función genérica para no repetir código por cada carrusel
+        function startPropertyCarousel(className, totalSlides) {
+            let index = 0;
+            setInterval(() => {
+                index = (index + 1) % totalSlides;
+                document.querySelectorAll('.' + className).forEach(track => {
+                    track.style.transform = `translateX(-${index * 100}%)`;
+                });
+            }, 4000);
+        }
+
+        // JARVIS MOD: Se inician los carruseles apuntando a las clases correctas
+        startPropertyCarousel('trackApart1', 8); // Unidad Yield tiene 8 fotos (img0 a img7)
+        startPropertyCarousel('trackApart2', 8); // Sky Palace tiene 8 fotos (img0 a img7)
 
         /* 5. CONTACTO WHATSAPP: Captura el nombre y abre el chat */
         function enviarWhatsApp() {
             const nombre = document.getElementById('formNombre').value;
             if(!nombre) { alert("Por favor, ingrese su nombre para iniciar la asesoría."); return; }
             const mensaje = `Hola Dubbyx, mi nombre es ${nombre}. Deseo asesoría sobre las opciones de inversión en Dubái.`;
-            window.open(`https://wa.me/+584123325563?text=${encodeURIComponent(mensaje)}`, '_blank');
+            // JARVIS MOD: Se corrigió la URL de WhatsApp eliminando el símbolo '+' que genera conflictos en móviles
+            window.open(`https://wa.me/584123325563?text=${encodeURIComponent(mensaje)}`, '_blank');
         }
     </script>
 </body>
